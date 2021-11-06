@@ -1,36 +1,57 @@
-import React, { createContext } from 'react'
+import React, { createContext, useState } from 'react'
 
-const menuList = [
-  {
+const initialMenuList = {
+  powierzchnia: {
     label: 'Powierzchnia',
     name: 'powierzchnia',
     value: null,
-    url: '/powierzchnia'
+    url: '/aquaform/powierzchnia',
+    // TODO: Change for dynamics URLs
+    prevUrl: '/',
+    nextUrl: '/aquaform/zabudowa',
+    options: {
+      podworko: 100,
+      park: 200,
+      ownArea: null
+    }
   },
-  {
+  zabudowa: {
     label: 'Zabudowa',
     name: 'zabudowa',
     value: null,
-    url: '/zabudowa'
+    url: '/aquaform/zabudowa',
+    prevUrl: '/aquaform/powierzchnia',
+    nextUrl: '/aquaform/cel'
   },
-  {
+  cel: {
     label: 'Cel',
     name: 'cel',
     value: null,
-    url: '/zabudowa'
+    url: '/aquaform/cel',
+    prevUrl: '/aquaform/zabudowa',
+    nextUrl: null
   }
-]
+}
 
 const FORM_CONTROL_VALUE = {
-  formMenuItems: {}
+  formMenuItems: {},
+  setFormItemValue: () => {}
 }
 
 export const FormControlContext = createContext(FORM_CONTROL_VALUE)
 
 const FormControlContextProvider = ({ children }) => {
+  const [menuList, setMenuItem] = useState(initialMenuList)
+
+  const setFormItemValue = (formItemName, newValue) => {
+    const itemToChange = { ...menuList[formItemName], value: newValue }
+    setMenuItem(prevState => { return { ...prevState, [formItemName]: itemToChange } })
+  }
+
   const initialFormControlContext = () => {
     return {
-      formMenuItems: menuList
+      formMenuItems: menuList,
+      setFormItemValue
     }
   }
 

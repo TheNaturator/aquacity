@@ -1,22 +1,14 @@
 import React from 'react'
+import { Outlet } from 'react-router-dom'
 import { PageLayout } from '../components/PageLayout'
-import { Grid } from '@mui/material'
-import { FormBox } from '../components/FormBox'
+import { Container } from '@mui/material'
 
 export const AquaForm = () => {
   return (
     <PageLayout>
-      <Grid container spacing={2}>
-        <Grid item xs={4}>
-          <FormBox isActive />
-        </Grid>
-        <Grid item xs={4}>
-          <FormBox />
-        </Grid>
-        <Grid item xs={4}>
-          <FormBox />
-        </Grid>
-      </Grid>
+      <Container>
+        <Outlet />
+      </Container>
     </PageLayout>
   )
 }

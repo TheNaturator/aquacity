@@ -3,9 +3,11 @@ import { TopNav } from './TopNav'
 import { Drawer, List, ListItem, ListItemIcon, ListItemText, Typography } from '@mui/material'
 import CheckCircleIcon from '@mui/icons-material/CheckCircle'
 import { FormControlContext } from '../context/FormControlContext'
+import { useNavigate } from 'react-router-dom'
 
 export const Menu = () => {
   const { formMenuItems } = useContext(FormControlContext)
+  const navigate = useNavigate()
 
   const drawerWidth = 240
 
@@ -24,12 +26,12 @@ export const Menu = () => {
     >
       <TopNav />
       <List>
-        {formMenuItems.map((item, index) => (
-          <ListItem button key={item.label}>
-            {item.value
+        {Object.keys(formMenuItems).map((item, index) => (
+          <ListItem button key={formMenuItems[item].label} onClick={() => navigate(formMenuItems[item].url)}>
+            {formMenuItems[item].value
               ? <ListItemIcon><CheckCircleIcon color='success' fontSize='small' /></ListItemIcon>
               : <Typography mr={5}>{index + 1} </Typography>}
-            <ListItemText primary={item.label} />
+            <ListItemText primary={formMenuItems[item].label} />
           </ListItem>
         ))}
       </List>

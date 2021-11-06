@@ -15,7 +15,7 @@ export const Main = () => {
         Zaadoptuj swoje miasto do zmienającego się klimatu
       </Typography>
 
-      <Button variant='contained' onClick={() => navigate('/aquaform')}>
+      <Button variant='contained' onClick={() => navigate('/aquaform/powierzchnia')}>
         PRZEJDŹ DO APLIKACJI
       </Button>
     </PageLayout>
