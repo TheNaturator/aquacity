@@ -9,6 +9,9 @@ import FormControlContextProvider from './context/FormControlContext'
 import { Zabudowa } from './components/formElements/Zabudowa'
 import { Powierzchnia } from './components/formElements/Powierzchnia'
 import { Cel } from './components/formElements/Cel'
+import { Budzet } from './components/formElements/Budzet'
+import { Zarzadzanie } from './components/formElements/Zarzadzanie'
+import { Summary } from './pages/Summary'
 
 const App = () => {
   return (
@@ -21,7 +24,10 @@ const App = () => {
               <Route path='zabudowa' element={<Zabudowa />} />
               <Route path='powierzchnia' element={<Powierzchnia />} />
               <Route path='cel' element={<Cel />} />
+              <Route path='budzet' element={<Budzet />} />
+              <Route path='zarzadzanie' element={<Zarzadzanie />} />
             </Route>
+            <Route path='/podsumowanie' element={<Summary />} />
           </Routes>
         </FormControlContextProvider>
       </ThemeProvider>
