@@ -5,15 +5,18 @@ import { Main } from './components/Main'
 import { AquaForm } from './pages/AquaForm'
 import { ThemeProvider } from '@mui/material'
 import theme from './theme'
+import FormControlContextProvider from './context/FormControlContext'
 
 const App = () => {
   return (
     <BrowserRouter>
       <ThemeProvider theme={theme}>
-        <Routes>
-          <Route path='/' element={<Main />} />
-          <Route path='/aquaform' element={<AquaForm />} />
-        </Routes>
+        <FormControlContextProvider>
+          <Routes>
+            <Route path='/' element={<Main />} />
+            <Route path='/aquaform' element={<AquaForm />} />
+          </Routes>
+        </FormControlContextProvider>
       </ThemeProvider>
     </BrowserRouter>
   )
