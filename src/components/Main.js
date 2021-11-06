@@ -1,8 +1,10 @@
 import React from 'react'
 import { Button, Typography } from '@mui/material'
+import { useNavigate } from 'react-router-dom'
 import { PageLayout } from './PageLayout'
 
 export const Main = () => {
+  const navigate = useNavigate()
   return (
     <PageLayout>
       <Typography variant='h3' mb={3}>
@@ -13,7 +15,7 @@ export const Main = () => {
         Zaadoptuj swoje miasto do zmienającego się klimatu
       </Typography>
 
-      <Button variant='contained'>
+      <Button variant='contained' onClick={() => navigate('/aquaform')}>
         PRZEJDŹ DO APLIKACJI
       </Button>
     </PageLayout>
