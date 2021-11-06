@@ -31,16 +31,29 @@ const initialMenuList = {
   cel: {
     label: 'Cel',
     name: 'cel',
-    value: null,
+    value: {
+      retencja: false,
+      stworzenie: false,
+      niewidoczne: false,
+      cena: false
+    },
     url: '/aquaform/cel',
     prevUrl: '/aquaform/zabudowa',
-    nextUrl: null
+    nextUrl: null,
+    options: {
+      retencja: 'retencja',
+      stworzenie: 'stworzenie',
+      niewidoczne: 'niewidocznea',
+      cena: 'cena'
+    }
   }
 }
 
 const FORM_CONTROL_VALUE = {
   formMenuItems: {},
-  setFormItemValue: () => {}
+  setFormItemValue: () => {},
+  checkIfValueExistCel: () => {},
+  setFormItemValueCel: () => {}
 }
 
 export const FormControlContext = createContext(FORM_CONTROL_VALUE)
@@ -53,10 +66,21 @@ const FormControlContextProvider = ({ children }) => {
     setMenuItem(prevState => { return { ...prevState, [formItemName]: itemToChange } })
   }
 
+  const setFormItemValueCel = (valueName, newValue) => {
+    const itemToChange = { ...menuList.cel, value: { ...menuList.cel.value, [valueName]: newValue } }
+    setMenuItem(prevState => { return { ...prevState, cel: itemToChange } })
+  }
+
+  const checkIfValueExistCel = () => {
+    return menuList?.cel.value.retencja || menuList?.cel.value.stworzenie || menuList?.cel.value.niewidoczne || menuList?.cel.value.cena
+  }
+
   const initialFormControlContext = () => {
     return {
       formMenuItems: menuList,
-      setFormItemValue
+      setFormItemValue,
+      checkIfValueExistCel,
+      setFormItemValueCel
     }
   }
 
