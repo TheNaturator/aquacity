@@ -21,7 +21,12 @@ const initialMenuList = {
     value: null,
     url: '/aquaform/zabudowa',
     prevUrl: '/aquaform/powierzchnia',
-    nextUrl: '/aquaform/cel'
+    nextUrl: '/aquaform/cel',
+    options: {
+      domy: 'domy',
+      blokowiska: 'blokowiska',
+      pustyTeren: 'pustyTeren'
+    }
   },
   cel: {
     label: 'Cel',

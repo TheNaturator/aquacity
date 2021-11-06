@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react'
-import { Box, Button, CircularProgress, Grid } from '@mui/material'
+import { Box, Button, CircularProgress, Grid, Typography } from '@mui/material'
 import { FormBox } from '../FormBox'
 import { FormControlContext } from '../../context/FormControlContext'
 import { useNavigate } from 'react-router-dom'
@@ -25,7 +25,8 @@ export const Powierzchnia = () => {
 
   return (
     <>
-      <Grid container spacing={2}>
+      <Typography variant='h4'>Wybierz jak duża jest powierzchnia</Typography>
+      <Grid container spacing={2} mt={5}>
         <Grid item xs={4} onClick={() => setFormItemValue('powierzchnia', stepData.options.podworko)}>
           <FormBox mainText='Podwórko' subText='< 100 m2' isActive={stepData?.options?.podworko === stepData?.value} />
         </Grid>
@@ -44,7 +45,7 @@ export const Powierzchnia = () => {
         <Button size='large' variant='outlined' onClick={() => navigate(stepData.prevUrl)}>
           WRÓĆ
         </Button>
-        <Button variant='contained' size='large' onClick={() => navigate(stepData.nextUrl)}>
+        <Button variant='contained' size='large' onClick={() => navigate(stepData.nextUrl)} disabled={!stepData?.value}>
           DALEJ
         </Button>
       </Box>
