@@ -1,12 +1,10 @@
 import React from 'react'
 import './App.css'
-import { Container } from '@mui/material'
+import { Main } from './components/Main'
 
 const App = () => {
   return (
-    <Container>
-      asd
-    </Container>
+    <Main />
   )
 }
 
