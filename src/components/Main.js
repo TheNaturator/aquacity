@@ -12,7 +12,7 @@ export const Main = () => {
       </Typography>
 
       <Typography variant='h5' mb={10}>
-        Zaadoptuj swoje miasto do zmienającego się klimatu
+        Zaadaptuj swoje miasto do zmienającego się klimatu
       </Typography>
 
       <Button variant='contained' onClick={() => navigate('/aquaform/powierzchnia')}>
