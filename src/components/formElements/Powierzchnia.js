@@ -4,6 +4,8 @@ import { FormBox } from '../FormBox'
 import { FormControlContext } from '../../context/FormControlContext'
 import { useNavigate } from 'react-router-dom'
 import { FormBoxOwnArea } from '../FormBoxOwnArea'
+import podworkoImage from '../../images/podworko.png'
+import parkImage from '../../images/park.png'
 
 export const Powierzchnia = () => {
   const navigate = useNavigate()
@@ -28,10 +30,10 @@ export const Powierzchnia = () => {
       <Typography variant='h4'>Wybierz jak duża jest powierzchnia</Typography>
       <Grid container spacing={2} mt={5}>
         <Grid item xs={4} onClick={() => setFormItemValue('powierzchnia', stepData.options.podworko)}>
-          <FormBox mainText='Podwórko' subText='< 100 m2' isActive={stepData?.options?.podworko === stepData?.value} />
+          <FormBox mainText='Podwórko' subText='< 100 m2' isActive={stepData?.options?.podworko === stepData?.value} image={podworkoImage} />
         </Grid>
         <Grid item xs={4} onClick={() => setFormItemValue('powierzchnia', stepData.options.park)}>
-          <FormBox mainText='Park' subText='200 m2 - 600 m2' isActive={stepData?.options?.park === stepData?.value} />
+          <FormBox mainText='Park' subText='200 m2 - 600 m2' isActive={stepData?.options?.park === stepData?.value} image={parkImage} />
         </Grid>
         <Grid item xs={4}>
           <FormBoxOwnArea

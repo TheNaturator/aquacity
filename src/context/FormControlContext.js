@@ -39,7 +39,7 @@ const initialMenuList = {
     },
     url: '/aquaform/cel',
     prevUrl: '/aquaform/zabudowa',
-    nextUrl: null,
+    nextUrl: '/aquaform/budzet',
     options: {
       retencja: 'retencja',
       stworzenie: 'stworzenie',

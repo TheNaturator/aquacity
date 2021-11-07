@@ -2,12 +2,15 @@ import React from 'react'
 import { Box, Typography } from '@mui/material'
 import { styled } from '@mui/material/styles'
 
-export const FormBox = ({ isActive, mainText, subText }) => {
+export const FormBox = ({ isActive, mainText, subText, image }) => {
   const StyledBox = styled(Box)(({ theme }) => `
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
     background-color: ${theme.palette.grey['300']};
+    background-image: url(${image});
+    background-size: cover;
+    background-position: center;
     transition: opacity 0.3s ease;
     height: 300px;
     opacity: 0.5;
