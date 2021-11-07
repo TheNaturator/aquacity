@@ -1,11 +1,13 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import { PageLayout } from '../components/PageLayout'
 import { Box, Container, Grid, Typography } from '@mui/material'
 import { SummaryBox } from '../components/SummaryBox'
 import { FormControlContext } from '../context/FormControlContext'
+import { SummaryModalOgrod } from '../components/SummaryModal'
 
 export const Summary = () => {
   const { getTextBasedOnValue } = useContext(FormControlContext)
+  const [openModal, setOpenModal] = useState(false)
 
   return (
     <PageLayout withoutMenu>
@@ -26,16 +28,17 @@ export const Summary = () => {
         </Box>
         <Grid container spacing={2} mt={5}>
           <Grid item xs={3}>
-            <SummaryBox mainTitle='Ogród deszczowy' amount='od 2000 PLN' />
+            <SummaryBox mainTitle='Ogród deszczowy' amount='od 2000 PLN' openModal={() => setOpenModal(true)} />
           </Grid>
           <Grid item xs={3}>
-            <SummaryBox mainTitle='Zbiornik na wodę opadową' amount='od 6000 PLN' />
+            <SummaryBox mainTitle='Zbiornik na wodę opadową' amount='od 6000 PLN' openModal={() => setOpenModal(true)} />
           </Grid>
           <Grid item xs={3}>
-            <SummaryBox mainTitle='Dach zielony' amount='od 6000 PLN' />
+            <SummaryBox mainTitle='Dach zielony' amount='od 6000 PLN' openModal={() => setOpenModal(true)} />
           </Grid>
         </Grid>
       </Container>
+      <SummaryModalOgrod open={openModal} handleClose={() => setOpenModal(false)} />
     </PageLayout>
   )
 }

@@ -2,7 +2,7 @@ import React from 'react'
 import { Box, Button, Typography } from '@mui/material'
 import { styled } from '@mui/material/styles'
 
-export const SummaryBox = ({ mainTitle, amount }) => {
+export const SummaryBox = ({ mainTitle, amount, openModal }) => {
   const StyledBox = styled(Box)(({ theme }) => `
     display: flex;
     flex-direction: column;
@@ -31,7 +31,7 @@ export const SummaryBox = ({ mainTitle, amount }) => {
         <Button variant='contained' fullWidth style={{ marginBottom: '12px' }}>
           WYBIERZ
         </Button>
-        <Button variant='outlined' fullWidth style={{ backgroundColor: 'white' }}>
+        <Button variant='outlined' fullWidth style={{ backgroundColor: 'white' }} onClick={openModal}>
           DOWIEDZ SIĘ WIĘCEJ
         </Button>
       </Box>
