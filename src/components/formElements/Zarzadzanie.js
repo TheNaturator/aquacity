@@ -6,7 +6,7 @@ import { FormControlContext } from '../../context/FormControlContext'
 
 export const Zarzadzanie = () => {
   const navigate = useNavigate()
-  const { formMenuItems, setFormItemValue } = useContext(FormControlContext)
+  const { formMenuItems, setFormItemValue, checkIsValuesExist } = useContext(FormControlContext)
   const [stepData, setStepData] = useState(formMenuItems.zarzadzanie)
 
   useEffect(() => {
@@ -33,7 +33,7 @@ export const Zarzadzanie = () => {
         <Button size='large' variant='outlined' onClick={() => navigate(stepData.prevUrl)}>
           WRÓĆ
         </Button>
-        <Button variant='contained' size='large' onClick={() => navigate(stepData.nextUrl)} disabled={!stepData?.value}>
+        <Button variant='contained' size='large' onClick={() => navigate(stepData.nextUrl)} disabled={!checkIsValuesExist()}>
           DALEJ
         </Button>
       </Box>

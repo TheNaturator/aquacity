@@ -26,10 +26,13 @@ export const Summary = () => {
         </Box>
         <Grid container spacing={2} mt={5}>
           <Grid item xs={3}>
-            <SummaryBox />
+            <SummaryBox mainTitle='Ogród deszczowy' amount='od 2000 PLN' />
           </Grid>
           <Grid item xs={3}>
-            <SummaryBox />
+            <SummaryBox mainTitle='Zbiornik na wodę opadową' amount='od 6000 PLN' />
+          </Grid>
+          <Grid item xs={3}>
+            <SummaryBox mainTitle='Dach zielony' amount='od 6000 PLN' />
           </Grid>
         </Grid>
       </Container>

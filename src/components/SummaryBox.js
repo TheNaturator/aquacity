@@ -1,15 +1,15 @@
 import React from 'react'
-import { Box, Typography } from '@mui/material'
+import { Box, Button, Typography } from '@mui/material'
 import { styled } from '@mui/material/styles'
 
-export const SummaryBox = () => {
+export const SummaryBox = ({ mainTitle, amount }) => {
   const StyledBox = styled(Box)(({ theme }) => `
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: space-between;
     background-color: ${theme.palette.grey['300']};
     transition: opacity 0.3s ease;
-    height: 300px;
+    height: 400px;
     border-radius: 16px;
     padding: 24px;
     :hover {
@@ -23,8 +23,18 @@ export const SummaryBox = () => {
 
   return (
     <StyledBox>
-      <Typography style={{ paddingBottom: '10px' }}>SummaryBox</Typography>
-      <Typography fontWeight='bold'>SummaryBox</Typography>
+      <Box>
+        <Typography variant='h6' fontWeight='bold' mb={2}>{mainTitle}</Typography>
+        <Typography style={{ paddingBottom: '10px' }}>{amount}</Typography>
+      </Box>
+      <Box>
+        <Button variant='contained' fullWidth style={{ marginBottom: '12px' }}>
+          WYBIERZ
+        </Button>
+        <Button variant='outlined' fullWidth style={{ backgroundColor: 'white' }}>
+          DOWIEDZ SIĘ WIĘCEJ
+        </Button>
+      </Box>
     </StyledBox>
   )
 }

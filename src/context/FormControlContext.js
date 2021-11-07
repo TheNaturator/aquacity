@@ -74,7 +74,8 @@ const FORM_CONTROL_VALUE = {
   setFormItemValue: () => {},
   checkIfValueExistCel: () => {},
   setFormItemValueCel: () => {},
-  getTextBasedOnValue: () => {}
+  getTextBasedOnValue: () => {},
+  checkIsValuesExist: () => {}
 }
 
 export const FormControlContext = createContext(FORM_CONTROL_VALUE)
@@ -94,6 +95,10 @@ const FormControlContextProvider = ({ children }) => {
 
   const checkIfValueExistCel = () => {
     return menuList?.cel.value.retencja || menuList?.cel.value.stworzenie || menuList?.cel.value.niewidoczne || menuList?.cel.value.cena
+  }
+
+  const checkIsValuesExist = () => {
+    return menuList?.powierzchnia.value && menuList?.zabudowa.value && checkIfValueExistCel() && menuList?.budzet.value && menuList?.zarzadzanie.value
   }
 
   const getTextBasedOnValue = (formItemName) => {
@@ -143,7 +148,8 @@ const FormControlContextProvider = ({ children }) => {
       setFormItemValue,
       checkIfValueExistCel,
       setFormItemValueCel,
-      getTextBasedOnValue
+      getTextBasedOnValue,
+      checkIsValuesExist
     }
   }
 
